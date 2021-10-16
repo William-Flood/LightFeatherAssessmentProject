@@ -1,0 +1,29 @@
+﻿@page "/"
+@model LightFeatherAssessmentProject.Pages.IndexModel
+@{
+}
+
+
+<html>
+<head>
+    <title>LightFeather Notification Form</title>
+    <link rel="stylesheet" type="text/css" href="~/css/form.css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    @Html.React("NotificationForm", new {
+    submitURL = Url.Action("Submit", "Submit"),
+    supervisorList = Model.SupervisorList
+    //,supervisorsURL = Url.Action("Supervisors", "Supervisors")
+})
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.0/umd/react.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script src="@Url.Content("~/js/NotificationForm.jsx")"></script>
+    @Html.ReactInitJavaScript()
+</body>
+</html>
